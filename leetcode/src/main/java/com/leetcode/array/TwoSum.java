@@ -26,11 +26,10 @@ public class TwoSum {
         Map<Integer, Integer> valuesWithIndexes = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int difference = target - nums[i];
-            if (!valuesWithIndexes.containsKey(difference)) {
-                valuesWithIndexes.put(nums[i], i);
-            } else {
+            if (valuesWithIndexes.containsKey(difference)) {
                 return new int[]{i, valuesWithIndexes.get(difference)};
             }
+            valuesWithIndexes.put(nums[i], i);
         }
         return new int[]{};
     }
